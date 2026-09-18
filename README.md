@@ -1,14 +1,22 @@
-# Cove (macOS Menu Bar Notch Overflow Manager)
+<p align="center">
+  <img src="Assets/logo.png" alt="Cove Logo" width="120" style="border-radius: 26px;"/>
+</p>
 
-[![CI & Build](https://github.com/chengruo/cove/actions/workflows/ci.yml/badge.svg)](https://github.com/chengruo/cove/actions/workflows/ci.yml)
-[![Platform](https://img.shields.io/badge/Platform-macOS%2014.0%2B-blue.svg)](https://apple.com/macos)
-[![Swift](https://img.shields.io/badge/Swift-5.9%2B%20%7C%206.0-orange.svg)](https://swift.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-**Cove** 是一个纯原生 macOS Swift 应用，专为解决 MacBook 屏幕刘海（Notch）导致顶部 Menu Bar 状态栏图标被遮挡、无法查看和点击的问题而设计。
+<h1 align="center">Cove</h1>
+<p align="center">
+  <strong>Native macOS Menu Bar Notch Overflow Manager</strong><br>
+  纯原生 macOS 刘海屏菜单栏遮挡救援工具
+</p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/chengruo/cove/main/Assets/preview.png" alt="Cove Preview" width="480" onerror="this.style.display='none'"/>
+  <a href="https://github.com/chengruo/cove/actions/workflows/ci.yml"><img src="https://github.com/chengruo/cove/actions/workflows/ci.yml/badge.svg" alt="CI & Build"></a>
+  <a href="https://apple.com/macos"><img src="https://img.shields.io/badge/Platform-macOS%2014.0%2B-blue.svg" alt="Platform"></a>
+  <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.9%2B%20%7C%206.0-orange.svg" alt="Swift"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
+</p>
+
+<p align="center">
+  <img src="Assets/preview.png" alt="Cove Preview" width="820" style="border-radius: 12px;"/>
 </p>
 
 ---

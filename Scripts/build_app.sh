@@ -19,6 +19,9 @@ rm -rf "${APP_BUNDLE}"
 mkdir -p "${MACOS_DIR}" "${RESOURCES_DIR}"
 
 cp "${BUILD_DIR}/release/Cove" "${MACOS_DIR}/Cove"
+if [ -f "${PROJECT_DIR}/Assets/AppIcon.icns" ]; then
+    cp "${PROJECT_DIR}/Assets/AppIcon.icns" "${RESOURCES_DIR}/AppIcon.icns"
+fi
 
 cat << 'EOF' > "${CONTENTS_DIR}/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -29,6 +32,8 @@ cat << 'EOF' > "${CONTENTS_DIR}/Info.plist"
     <string>en</string>
     <key>CFBundleExecutable</key>
     <string>Cove</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
     <string>com.cove.app</string>
     <key>CFBundleInfoDictionaryVersion</key>
