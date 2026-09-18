@@ -8,11 +8,17 @@ CONTENTS_DIR="${APP_BUNDLE}/Contents"
 MACOS_DIR="${CONTENTS_DIR}/MacOS"
 RESOURCES_DIR="${CONTENTS_DIR}/Resources"
 
-echo "==> Building Cove binary via Swift Package Manager..."
-mkdir -p "${BUILD_DIR}/tmp" "${BUILD_DIR}/clang-cache"
-CLANG_MODULE_CACHE_PATH="${BUILD_DIR}/clang-cache" \
-TMPDIR="${BUILD_DIR}/tmp" \
-swift build --disable-sandbox -c release
+echo "==> Building Cove binary..."
+mkdir -p "${BUILD_DIR}/tmp" "${BUILD_DIR}/clang-cache" "${BUILD_DIR}/release"
+
+if ! (CLANG_MODULE_CACHE_PATH="${BUILD_DIR}/clang-cache" TMPDIR="${BUILD_DIR}/tmp" swift build --disable-sandbox -c release 2>/dev/null); then
+    echo "⚠️ Swift Package Manager manifest compilation failed (system toolchain mismatch). Falling back to direct swiftc compilation..."
+    swiftc -O -target arm64-apple-macosx14.0 \
+      -module-cache-path "${BUILD_DIR}/clang-cache" \
+      -framework AppKit -framework SwiftUI -framework ApplicationServices -framework ServiceManagement -framework Carbon \
+      "${PROJECT_DIR}"/Sources/Cove/**/*.swift \
+      -o "${BUILD_DIR}/release/Cove"
+fi
 
 echo "==> Packaging Cove.app bundle..."
 rm -rf "${APP_BUNDLE}"
